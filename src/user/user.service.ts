@@ -64,6 +64,24 @@ export class UserService {
     });
   }
 
+  // 根据用户名查询用户（包含密码字段）
+  // 登录时使用：需要通过用户名找到用户，然后比对密码
+  async findOneWithPassword(username: string) {
+    return this.userRepo.findOne({
+      where: { username },             // 查询条件：username 等于传入的值
+      // 这里需要查 password 字段，因为后面要 bcrypt.compare 比对密码
+      select: { id: true, username: true, password: true, nickname: true },
+    });
+  }
+
+  // 根据 id 查询用户（不含密码），获取用户信息时使用
+  async findByIdWithoutPassword(id: number) {
+    return this.userRepo.findOne({
+      where: { id },
+      select: { id: true, username: true, nickname: true, createdAt: true, updatedAt: true },
+    });
+  }
+
   // 更新用户
   // id 是要更新的用户 id，dto 是要更新的字段（可以只传部分字段）
   async update(id: number, dto: UpdateUserDto) {

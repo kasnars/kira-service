@@ -9,6 +9,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 // 导入用户模块
 import { UserModule } from './user/user.module';
+// 导入认证模块（登录、JWT、token 验证）
+import { AuthModule } from './auth/auth.module';
 
 // @Module 装饰器：声明这是一个 NestJS 模块
 // NestJS 的应用就是由多个 Module 组成的
@@ -37,6 +39,9 @@ import { UserModule } from './user/user.module';
 
     // 注册用户模块，注册后 /users 路由才会生效
     UserModule,
+
+    // 注册认证模块，注册后 /auth 路由才会生效（登录、退出、获取用户信息）
+    AuthModule,
   ],
 
   // controllers: 注册控制器，处理 HTTP 请求
