@@ -36,7 +36,8 @@
       "Bash(curl -s -X POST http://localhost:3000/auth/logout -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc3OTM3NTQ2NCwiZXhwIjoxNzc5NDYxODY0fQ.2JH_U603VmyjE5WGciG_YV4mupopELl1GfTD3kSStzk')",
       "Bash(curl -s http://localhost:3000/auth/profile -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc3OTM3NjAxMCwiZXhwIjoxNzc5NDYyNDEwfQ.sv4BNS0OidGk5N9TWrDDn7Lbm3HQdzS5A13cylKfslU')",
       "Bash(curl -s -X POST http://localhost:3000/auth/logout -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc3OTM3NjAxMCwiZXhwIjoxNzc5NDYyNDEwfQ.sv4BNS0OidGk5N9TWrDDn7Lbm3HQdzS5A13cylKfslU')",
-      "Bash(taskkill //PID 40904 //F)"
+      "Bash(taskkill //PID 40904 //F)",
+      "Bash(git config *)"
     ],
     "additionalDirectories": [
       "d:\\code\\kira-service\\kira-service"
