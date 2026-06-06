@@ -12,6 +12,9 @@ dist/
 .env.local
 .env.*.local
 
+# Sensitive config
+src/config/sensitive.config.ts
+
 # IDE
 .vscode/
 .idea/

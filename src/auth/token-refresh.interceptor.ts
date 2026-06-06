@@ -17,7 +17,7 @@ export class TokenRefreshInterceptor implements NestInterceptor {
     private readonly configService: ConfigService,
   ) {}
 
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
     if (context.getType() !== 'http') {
       return next.handle();
     }
@@ -52,26 +52,25 @@ export class TokenRefreshInterceptor implements NestInterceptor {
     );
   }
 
-  private shouldSkipRefresh(method: string, path: string) {
+  private shouldSkipRefresh(method: string, path: string): boolean {
     return (
       (method === 'POST' && path === '/auth/login') ||
       (method === 'POST' && path === '/auth/logout')
     );
   }
 
-  private getPayloadFromRequest(request: any): JwtUserPayload | null {
-    if (request?.user?.id && request?.user?.username) {
+  private getPayloadFromRequest(request: { user?: JwtUserPayload }): JwtUserPayload | null {
+    if (request.user?.id && request.user?.username) {
       return {
         id: request.user.id,
         username: request.user.username,
       };
     }
-
     return null;
   }
 
-  private getPayloadFromAuthHeader(request: any): JwtUserPayload | null {
-    const header = request?.headers?.authorization;
+  private getPayloadFromAuthHeader(request: { headers?: Record<string, string | string[] | undefined> }): JwtUserPayload | null {
+    const header = request.headers?.authorization;
 
     if (!header || typeof header !== 'string') {
       return null;

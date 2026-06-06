@@ -18,8 +18,7 @@ import { UserModule } from '../user/user.module';
           config.get<string>('jwt.secret') ||
           'default-secret-change-in-production',
         signOptions: {
-          expiresIn:
-            (config.get<string>('jwt.expiresIn') || '48h') as any,
+          expiresIn: (config.get<string>('jwt.expiresIn') || '48h') as any,
         },
       }),
     }),
